@@ -1,54 +1,46 @@
 import _sequelize from "sequelize";
 const { Model, Sequelize } = _sequelize;
 
-export default class order_food extends Model {
+export default class luu_anh extends Model {
   static init(sequelize, DataTypes) {
     return super.init(
       {
-        customer_id: {
+        nguoi_dung_id: {
           type: DataTypes.INTEGER,
           allowNull: true,
           primaryKey: true,
           references: {
-            model: "customer",
-            key: "customer_id",
+            model: "nguoi_dung",
+            key: "nguoi_dung_id",
           },
         },
-        food_id: {
+        hinh_id: {
           type: DataTypes.INTEGER,
           allowNull: true,
           references: {
-            model: "food",
-            key: "food_id",
+            model: "hinh_anh",
+            key: "hinh_id",
           },
         },
-        amount: {
-          type: DataTypes.INTEGER,
-          allowNull: true,
-        },
-        code: {
-          type: DataTypes.STRING(255),
-          allowNull: true,
-        },
-        arr_sub_id: {
-          type: DataTypes.STRING(255),
+        ngay_luu: {
+          type: DataTypes.DATEONLY,
           allowNull: true,
         },
       },
       {
         sequelize,
-        tableName: "order_food",
+        tableName: "luu_anh",
         timestamps: false,
         indexes: [
           {
-            name: "customer_id",
+            name: "nguoi_dung_id",
             using: "BTREE",
-            fields: [{ name: "customer_id" }],
+            fields: [{ name: "nguoi_dung_id" }],
           },
           {
-            name: "food_id",
+            name: "hinh_id",
             using: "BTREE",
-            fields: [{ name: "food_id" }],
+            fields: [{ name: "hinh_id" }],
           },
         ],
       }

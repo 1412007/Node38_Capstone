@@ -1,31 +1,48 @@
 import sequelize from "../models/connect.js";
 import initModels from "../models/init-models.js";
+import { jwtDecode } from "jwt-decode";
 
 const conn = initModels(sequelize);
 
 const getUser = async (req, res) => {
   try {
-    let data = await conn.customer.findAll();
-    res.send(data);
-  } catch (error) {
-    console.log(`Back end error: ${error}`);
-  }
-};
+    let { token } = req.headers;
 
-const postOrder = async (req, res) => {
-  try {
-    let body = req.body;
-    let data = await conn.order_food.create({
-      customer_id: body.customerId,
-      food_id: body.foodId,
-      amount: body.amount,
-      code: body.code,
-      arr_sub_id: body.subId,
+    const data = jwtDecode(token);
+    const user = await conn.nguoi_dung.findOne({
+      attributes: ["nguoi_dung_id", "email", "ho_ten", "tuoi", "anh_dai_dien"],
+      where: {
+        nguoi_dung_id: data.data.user_id,
+      },
     });
-    res.send(data);
+    res.send(user);
   } catch (error) {
     console.log(`Back end error: ${error}`);
   }
 };
 
-export { getUser, postOrder };
+const updateUser = async (req, res) => {
+  try {
+    let { token } = req.headers;
+
+    const data = jwtDecode(token);
+    let { name, age, avatar } = req.body;
+    const user = await conn.nguoi_dung.findOne({
+      where: {
+        nguoi_dung_id: data.data.user_id,
+      },
+    });
+
+    if (!user) {
+      res.status(400).send("Invalid id");
+    } else {
+      user.update({ ho_ten: name, tuoi: age, anh_dai_dien: avatar });
+      user.save();
+    }
+    res.status(200).send("Update succecssfully");
+  } catch (error) {
+    console.log(`Back end error: ${error}`);
+  }
+};
+
+export { getUser, updateUser };

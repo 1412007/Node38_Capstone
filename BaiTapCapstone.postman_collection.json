@@ -1,0 +1,460 @@
+{
+	"info": {
+		"_postman_id": "5684a029-495e-437f-87e6-7aa8a963198e",
+		"name": "BaiTapCapstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32747826"
+	},
+	"item": [
+		{
+			"name": "Detail page",
+			"item": [
+				{
+					"name": "Upload comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjF9LCJpYXQiOjE3MDY5Mjg5NjQsImV4cCI6MTcwNjkzMDc2NH0.1sRQs9AkwnfEnZ_wnxz7XkzQ9gx3q5g_btOLCc0sQmc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imgId\": 1,\r\n    \"content\": \"bai tap capstone\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/comment/upload-comment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment",
+								"upload-comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user and image info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjF9LCJpYXQiOjE3MDY5Mjg5NjQsImV4cCI6MTcwNjkzMDc2NH0.1sRQs9AkwnfEnZ_wnxz7XkzQ9gx3q5g_btOLCc0sQmc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/image/info?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"info"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get comment by image id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjF9LCJpYXQiOjE3MDY5Mjg5NjQsImV4cCI6MTcwNjkzMDc2NH0.1sRQs9AkwnfEnZ_wnxz7XkzQ9gx3q5g_btOLCc0sQmc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/comment/info?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment",
+								"info"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check image is saved",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjF9LCJpYXQiOjE3MDY5Mjg5NjQsImV4cCI6MTcwNjkzMDc2NH0.1sRQs9AkwnfEnZ_wnxz7XkzQ9gx3q5g_btOLCc0sQmc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/image/check?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"check"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin page",
+			"item": [
+				{
+					"name": "Get user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjF9LCJpYXQiOjE3MDY5Mjg5NjQsImV4cCI6MTcwNjkzMDc2NH0.1sRQs9AkwnfEnZ_wnxz7XkzQ9gx3q5g_btOLCc0sQmc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get saved image by user id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjF9LCJpYXQiOjE3MDY5Mjg5NjQsImV4cCI6MTcwNjkzMDc2NH0.1sRQs9AkwnfEnZ_wnxz7XkzQ9gx3q5g_btOLCc0sQmc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/image/get-saved-image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"get-saved-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get uploaded image by user id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjF9LCJpYXQiOjE3MDY5Mjg5NjQsImV4cCI6MTcwNjkzMDc2NH0.1sRQs9AkwnfEnZ_wnxz7XkzQ9gx3q5g_btOLCc0sQmc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/image/get-upload-image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"get-upload-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete image",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjF9LCJpYXQiOjE3MDY5Mjg5NjQsImV4cCI6MTcwNjkzMDc2NH0.1sRQs9AkwnfEnZ_wnxz7XkzQ9gx3q5g_btOLCc0sQmc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/image/delete?id=6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home page",
+			"item": [
+				{
+					"name": "Get all image",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjF9LCJpYXQiOjE3MDY5Mjg5NjQsImV4cCI6MTcwNjkzMDc2NH0.1sRQs9AkwnfEnZ_wnxz7XkzQ9gx3q5g_btOLCc0sQmc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search image",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjF9LCJpYXQiOjE3MDY5Mjg5NjQsImV4cCI6MTcwNjkzMDc2NH0.1sRQs9AkwnfEnZ_wnxz7XkzQ9gx3q5g_btOLCc0sQmc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/image/search?text=testing",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"search"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "testing"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Upload page",
+			"item": [
+				{
+					"name": "Upload image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjF9LCJpYXQiOjE3MDY5Mjg5NjQsImV4cCI6MTcwNjkzMDc2NH0.1sRQs9AkwnfEnZ_wnxz7XkzQ9gx3q5g_btOLCc0sQmc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"image 1\",\r\n    \"filePath\": \"C:\\\\Users\\\\Desktop\\\\image1.png\",\r\n    \"desc\": \"bai tap capstone\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/image/upload-image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"upload-image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Update user's info",
+			"item": [
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjF9LCJpYXQiOjE3MDY5Mjg5NjQsImV4cCI6MTcwNjkzMDc2NH0.1sRQs9AkwnfEnZ_wnxz7XkzQ9gx3q5g_btOLCc0sQmc",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nguyen Van E\",\r\n    \"age\": 24,\r\n    \"avatar\": \"C:\\\\Users\\\\Desktop\\\\image2.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/update-user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"update-user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SignUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"abc1@gmail.com\",\r\n    \"password\": \"testing123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/authentication/sign-up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authentication",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"abc@gmail.com\",\r\n    \"password\": \"tetNayvu1qu@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/authentication/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authentication",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

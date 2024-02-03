@@ -1,30 +1,38 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class restaurant extends Model {
+export default class hinh_anh extends Model {
   static init(sequelize, DataTypes) {
   return super.init({
-    res_id: {
+    hinh_id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    res_name: {
+    ten_hinh: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    img: {
+    duong_dan: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    res_desc: {
+    mo_ta: {
       type: DataTypes.STRING(255),
       allowNull: true
+    },
+    nguoi_dung_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'nguoi_dung',
+        key: 'nguoi_dung_id'
+      }
     }
   }, {
     sequelize,
-    tableName: 'restaurant',
+    tableName: 'hinh_anh',
     timestamps: false,
     indexes: [
       {
@@ -32,7 +40,14 @@ export default class restaurant extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "res_id" },
+          { name: "hinh_id" },
+        ]
+      },
+      {
+        name: "nguoi_dung_id",
+        using: "BTREE",
+        fields: [
+          { name: "nguoi_dung_id" },
         ]
       },
     ]

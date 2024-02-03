@@ -1,49 +1,31 @@
 import _sequelize from "sequelize";
 const DataTypes = _sequelize.DataTypes;
-import _customer from  "./customer.js";
-import _food from  "./food.js";
-import _food_type from  "./food_type.js";
-import _like_res from  "./like_res.js";
-import _order_food from  "./order_food.js";
-import _rate_res from  "./rate_res.js";
-import _restaurant from  "./restaurant.js";
-import _sub_food from  "./sub_food.js";
+import _binh_luan from  "./binh_luan.js";
+import _hinh_anh from  "./hinh_anh.js";
+import _luu_anh from  "./luu_anh.js";
+import _nguoi_dung from  "./nguoi_dung.js";
 
 export default function initModels(sequelize) {
-  const customer = _customer.init(sequelize, DataTypes);
-  const food = _food.init(sequelize, DataTypes);
-  const food_type = _food_type.init(sequelize, DataTypes);
-  const like_res = _like_res.init(sequelize, DataTypes);
-  const order_food = _order_food.init(sequelize, DataTypes);
-  const rate_res = _rate_res.init(sequelize, DataTypes);
-  const restaurant = _restaurant.init(sequelize, DataTypes);
-  const sub_food = _sub_food.init(sequelize, DataTypes);
+  const binh_luan = _binh_luan.init(sequelize, DataTypes);
+  const hinh_anh = _hinh_anh.init(sequelize, DataTypes);
+  const luu_anh = _luu_anh.init(sequelize, DataTypes);
+  const nguoi_dung = _nguoi_dung.init(sequelize, DataTypes);
 
-  like_res.belongsTo(customer, { as: "customer", foreignKey: "customer_id"});
-  customer.hasMany(like_res, { as: "like_res", foreignKey: "customer_id"});
-  order_food.belongsTo(customer, { as: "customer", foreignKey: "customer_id"});
-  customer.hasMany(order_food, { as: "order_foods", foreignKey: "customer_id"});
-  rate_res.belongsTo(customer, { as: "customer", foreignKey: "customer_id"});
-  customer.hasMany(rate_res, { as: "rate_res", foreignKey: "customer_id"});
-  order_food.belongsTo(food, { as: "food", foreignKey: "food_id"});
-  food.hasMany(order_food, { as: "order_foods", foreignKey: "food_id"});
-  sub_food.belongsTo(food, { as: "food", foreignKey: "food_id"});
-  food.hasMany(sub_food, { as: "sub_foods", foreignKey: "food_id"});
-  food.belongsTo(food_type, { as: "foodtype", foreignKey: "foodtype_id"});
-  food_type.hasMany(food, { as: "foods", foreignKey: "foodtype_id"});
-  like_res.belongsTo(restaurant, { as: "re", foreignKey: "res_id"});
-  restaurant.hasMany(like_res, { as: "like_res", foreignKey: "res_id"});
-  rate_res.belongsTo(restaurant, { as: "re", foreignKey: "res_id"});
-  restaurant.hasMany(rate_res, { as: "rate_res", foreignKey: "res_id"});
+  binh_luan.belongsTo(hinh_anh, { as: "hinh", foreignKey: "hinh_id"});
+  hinh_anh.hasMany(binh_luan, { as: "binh_luans", foreignKey: "hinh_id"});
+  luu_anh.belongsTo(hinh_anh, { as: "hinh", foreignKey: "hinh_id"});
+  hinh_anh.hasMany(luu_anh, { as: "luu_anhs", foreignKey: "hinh_id"});
+  binh_luan.belongsTo(nguoi_dung, { as: "nguoi_dung", foreignKey: "nguoi_dung_id"});
+  nguoi_dung.hasMany(binh_luan, { as: "binh_luans", foreignKey: "nguoi_dung_id"});
+  hinh_anh.belongsTo(nguoi_dung, { as: "nguoi_dung", foreignKey: "nguoi_dung_id"});
+  nguoi_dung.hasMany(hinh_anh, { as: "hinh_anhs", foreignKey: "nguoi_dung_id"});
+  luu_anh.belongsTo(nguoi_dung, { as: "nguoi_dung", foreignKey: "nguoi_dung_id"});
+  nguoi_dung.hasMany(luu_anh, { as: "luu_anhs", foreignKey: "nguoi_dung_id"});
 
   return {
-    customer,
-    food,
-    food_type,
-    like_res,
-    order_food,
-    rate_res,
-    restaurant,
-    sub_food,
+    binh_luan,
+    hinh_anh,
+    luu_anh,
+    nguoi_dung,
   };
 }
